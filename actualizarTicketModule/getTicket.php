@@ -20,43 +20,34 @@ function validarTexto($txtCod)
 //echo verificarBoton($boton);
 if (isset($_POST['btnBuscar'])) {
     $boton = $_POST['btnBuscar'];
-    if(verificarBoton($boton))
-    {   
-        $txtCodigo=$_POST['txtCodigo'];
-        if(validarTexto($txtCodigo))
-        { 
+    if (verificarBoton($boton)) {
+        $txtCodigo = $_POST['txtCodigo'];
+        if (validarTexto($txtCodigo)) {
             include_once('controlActualizarTicket.php');
-            $objControlB = new controlActualizarTicket();
-            $objControlB -> validarTicket($txtCodigo);
-        }    
-
-        else
-        {
+            $objControl = new ControlActualizarTicket();
+            $command = new ValidarTicketCommand();
+            $objControl->ejecutarComando($command, $txtCodigo);
+        } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje -> windowMensajeSistemaShow("Error: datos no validos","<a href='../index.php'>ir al inicio</a>");
-
+            $objMensaje->windowMensajeSistemaShow("Error: datos no válidos", "<a href='../index.php'>ir al inicio</a>");
         }
-    }
-    else
-    {
+    } else {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje -> windowMensajeSistemaShow("Error: Acceso no permitido","<a href='../index.php'>ir al inicio</a>");
+        $objMensaje->windowMensajeSistemaShow("Error: Acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
     }
-}
-elseif (isset($_POST['btnEntregar'])) {
-    $txtcodigo3=$_POST['btnEntregar'];
+} elseif (isset($_POST['btnEntregar'])) {
+    $txtCodigo = $_POST['btnEntregar'];
     include_once('controlActualizarTicket.php');
-    $objControlB = new controlActualizarTicket();
-    $objControlB -> entregarTicket($txtcodigo3);
-  
-}
-elseif (isset($_POST['btnAnular'])) {
-    $txtcodigo2=$_POST['btnAnular'];
+    $objControl = new ControlActualizarTicket();
+    $command = new EntregarTicketCommand();
+    $objControl->ejecutarComando($command, $txtCodigo);
+} elseif (isset($_POST['btnAnular'])) {
+    $txtCodigo = $_POST['btnAnular'];
     include_once('controlActualizarTicket.php');
-    $objControlB = new controlActualizarTicket();
-    $objControlB -> anularTicket($txtcodigo2);
+    $objControl = new ControlActualizarTicket();
+    $command = new AnularTicketCommand();
+    $objControl->ejecutarComando($command, $txtCodigo);
 }
-
 ?>

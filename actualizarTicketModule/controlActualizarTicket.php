@@ -1,15 +1,13 @@
 <?php
-class controlActualizarTicket
+
+interface TicketCommand
 {
-    function verTipo($Num)
-    {
-        if (substr($Num, 0, 1) == "T") {
-            return "T";
-        } else {
-            return "F";
-        }
-    }
-    public function validarTicket($txtCodigo)
+    public function execute($txtCodigo);
+}
+
+class ValidarTicketCommand implements TicketCommand
+{
+    public function execute($txtCodigo)
     {
         include_once('../model/modeloTicketReembolso.php');
         $objProducto = new modeloTicketReembolso();
@@ -52,19 +50,21 @@ class controlActualizarTicket
                 $objMensaje = new windowMensajeSistema();
                 $objMensaje->windowMensajeSistemaShow("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
             }
-        }
-        else{
+        } else {
             include_once('../shared/windowMensajeSistema.php');
-                $objMensaje = new windowMensajeSistema();
-                $objMensaje->windowMensajeSistemaShow("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje = new windowMensajeSistema();
+            $objMensaje->windowMensajeSistemaShow("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
         }
     }
+}
 
-    public function entregarTicket($txtCodigo2)
+class EntregarTicketCommand implements TicketCommand
+{
+    public function execute($txtCodigo)
     {
         include_once('../model/modeloTicketReembolso.php');
         $objTicket = new modeloTicketReembolso();
-        $entregado = $objTicket->actualizarTicketEntregado($txtCodigo2);
+        $entregado = $objTicket->actualizarTicketEntregado($txtCodigo);
 
         if ($entregado == 1) {
             include_once('../shared/windowMensajeSistema.php');
@@ -73,15 +73,18 @@ class controlActualizarTicket
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->windowMensajeSistemaShow("No se ejecuto el cambio", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->windowMensajeSistemaShow("No se ejecutó el cambio", "<a href='../index.php'>ir al inicio</a>");
         }
     }
+}
 
-    public function anularTicket($txtCodigo2)
+class AnularTicketCommand implements TicketCommand
+{
+    public function execute($txtCodigo)
     {
         include_once('../model/modeloTicketReembolso.php');
         $objTicket = new modeloTicketReembolso();
-        $anulado = $objTicket->actualizarTicketAnulado($txtCodigo2);
+        $anulado = $objTicket->actualizarTicketAnulado($txtCodigo);
 
         if ($anulado == 1) {
             include_once('../shared/windowMensajeSistema.php');
@@ -90,7 +93,16 @@ class controlActualizarTicket
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->windowMensajeSistemaShow("No se ejecuto el cambio", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->windowMensajeSistemaShow("No se ejecutó el cambio", "<a href='../index.php'>ir al inicio</a>");
         }
     }
 }
+
+class ControlActualizarTicket
+{
+    public function ejecutarComando(TicketCommand $command, $txtCodigo)
+    {
+        $command->execute($txtCodigo);
+    }
+}
+?>
