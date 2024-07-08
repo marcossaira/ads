@@ -1,17 +1,24 @@
 <?php
+
+require_once('IncrementarCodigoProforma.php');
+require_once('FechaEntregaSemana.php');
+
 class controlGestorComprobante
 {   
-    public function semanaEntrega($current_date){
+    private $codigoStrategy;
+    private $fechaStrategy;
 
-    $new_date = date('Y-m-d', strtotime($current_date . ' + 7 days'));
-    return $new_date;
+    public function __construct(CodigoStrategy $codigoStrategy = null, FechaStrategy $fechaStrategy = null) {
+        $this->codigoStrategy = $codigoStrategy ?? new IncrementarCodigoProforma();
+        $this->fechaStrategy = $fechaStrategy ?? new FechaEntregaSemana();
+    }
+
+    public function semanaEntrega($current_date){
+        return $this->fechaStrategy->calcularFechaEntrega($current_date);
     }
     public function increment_code($code)
     {
-        $code_number = intval(substr($code, 6));
-        $code_number++;
-        $new_code = substr($code, 0, 6) . strval($code_number);
-        return $new_code;
+        return $this->codigoStrategy->incrementarCodigo($code);
     }
 
     public function validarDatos($txtoNum)
@@ -47,7 +54,7 @@ class controlGestorComprobante
         foreach ($codB as $c) {
             $codBoleta = $c['max(codBoleta)'];
         }
-        $control = new controlGestorComprobante();
+        $control = new controlGestorComprobante(new IncrementarCodigoProforma(), new FechaEntregaSemana());
         $next_proforma_number = $control->increment_code($codBoleta);
         foreach ($proforma as $x) {
             $codBoleta = $next_proforma_number;
@@ -87,7 +94,7 @@ class controlGestorComprobante
         foreach ($codF as $c) {
             $codFactura = $c['max(codFactura)'];
         }
-        $control = new controlGestorComprobante();
+        $control = new controlGestorComprobante(new IncrementarCodigoProforma(), new FechaEntregaSemana());
         $next_proforma_number = $control->increment_code($codFactura);
         foreach ($proforma as $x) {
             $codFactura = $next_proforma_number;
