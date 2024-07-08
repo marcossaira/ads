@@ -1,7 +1,6 @@
 <?php
 
-require_once('IncrementarCodigoProforma.php');
-require_once('FechaEntregaSemana.php');
+require_once('EstrategiasComprobante.php');
 
 class controlGestorComprobante
 {   
@@ -16,8 +15,8 @@ class controlGestorComprobante
     public function semanaEntrega($current_date){
         return $this->fechaStrategy->calcularFechaEntrega($current_date);
     }
-    public function increment_code($code)
-    {
+
+    public function increment_code($code) {
         return $this->codigoStrategy->incrementarCodigo($code);
     }
 
