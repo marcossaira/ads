@@ -1,61 +1,58 @@
 <?php
 function verificarBoton($btn)
 {
-    if (isset($btn))
-        return true;
-    else
-        return false;
-}
-function validarTexto($txtCod)
-{
-    $txtCodi = trim($txtCod);
-    if (strlen($txtCodi) >= 20)
-        return true;
-    else
-        return false;
+    return isset($btn);
 }
 
-$btnMantenimiento = $_POST['btnMantenimiento'] ?? null;;
-$btnReparacion = $_POST['btnReparacion'] ?? null;;
+function validarTexto($txtCod)
+{
+    return strlen(trim($txtCod)) >= 20;
+}
+
+$btnMantenimiento = $_POST['btnMantenimiento'] ?? null;
+$btnReparacion = $_POST['btnReparacion'] ?? null;
 $btnRegistrarM = $_POST['btnRegistrarM'] ?? null;
 $btnRegistrarR = $_POST['btnRegistrarR'] ?? null;
 
 if (verificarBoton($btnMantenimiento)) {
-    include_once('controlListar.php');
-    $objControl = new controlListar();
-    $objControl->equipoMant($btnMantenimiento);
+    include_once('./tecnicoModule/controlListar.php');
+    $controlListar = new controlListar();
+    $controlListar->equipoMant($btnMantenimiento);
 } elseif (verificarBoton($btnReparacion)) {
-    include_once('controlListar.php');
-    $objControl = new controlListar();
-    $objControl->equipoRep($btnReparacion);
+    include_once('./tecnicoModule/controlListar.php');
+    $controlListar = new controlListar();
+    $controlListar->equipoRep($btnReparacion);
 } elseif (verificarBoton($btnRegistrarM)) {
-    $idBtn = $btnRegistrarM;
-    $descripcionm = $_POST['txtDetalleM'];
-    $fechamant = $_POST['txtFecha'];
-    if (validarTexto($descripcionm)) {
-        include_once('controlListar.php');
-        $objControlB = new controlListar();
-        $objControlB->insertarMantenimientoEquipo($descripcionm, $fechamant, $idBtn);
+    $idEquipo = $btnRegistrarM;
+    $descripcionMantenimiento = $_POST['txtDetalleM'];
+    $fechaMantenimiento = $_POST['txtFecha'];
+    
+    if (validarTexto($descripcionMantenimiento)) {
+        include_once('./tecnicoModule/controlListar.php');
+        $controlListar = new controlListar();
+        $controlListar->insertarMantenimientoEquipo($descripcionMantenimiento, $fechaMantenimiento, $idEquipo);
     } else {
         include_once('../shared/windowMensajeSistema.php');
-        $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("Detalle correctamente el mantenimiento");
+        $mensajeSistema = new WindowMensajeSistema();
+        $mensajeSistema->mostrarMensaje("Detalle correctamente el mantenimiento");
     }
 } elseif (verificarBoton($btnRegistrarR)) {
-    $idBtn = $btnRegistrarR;
-    $descripcionr = $_POST['txtDetalleR'];
-    $fecharep = $_POST['txtFecha'];
-    if (validarTexto($descripcionr)) {
-        include_once('controlListar.php');
-        $objControlB = new controlListar();
-        $objControlB->insertarRepEquipo($descripcionr, $fecharep, $idBtn);
+    $idEquipo = $btnRegistrarR;
+    $descripcionReparacion = $_POST['txtDetalleR'];
+    $fechaReparacion = $_POST['txtFecha'];
+
+    if (validarTexto($descripcionReparacion)) {
+        include_once('./tecnicoModule/controlListar.php');
+        $controlListar = new controlListar();
+        $controlListar->insertarRepEquipo($descripcionReparacion, $fechaReparacion, $idEquipo);
     } else {
         include_once('../shared/windowMensajeSistema.php');
-        $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("Detalle correctamente la reparacion");
+        $mensajeSistema = new WindowMensajeSistema();
+        $mensajeSistema->mostrarMensaje("Detalle correctamente la reparacion");
     }
 } else {
     include_once('../shared/windowMensajeSistema.php');
-    $objMensaje = new windowMensajeSistema();
-    $objMensaje->windowMensajeSistemaShow("Error: Acceso no permitido");
+    $mensajeSistema = new WindowMensajeSistema();
+    $mensajeSistema->mostrarMensaje("Error: Acceso no permitido");
 }
+?>

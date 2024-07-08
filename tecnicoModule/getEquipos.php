@@ -1,25 +1,18 @@
 <?php
 function verificarBoton($btn)
 {
-    if(isset($btn))
-        return true;
-    else
-        return false;
+    return isset($btn);
 }
 
-$boton = $_POST['btnSeleccionar'];
-//echo verificarBoton($boton);
-if(verificarBoton($boton))
-{  
-    if (!empty($boton)) {
-        include_once('controlListar.php');
-        $objControl = new controlListar();
-        $objControl -> EquipoSeleccionado($boton);
-    }
-    else{
-        include_once('../shared/windowMensajeSistema.php');
-        $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("Error: Acceso no permitido");
-    }
+$btnSeleccionar = $_POST['btnSeleccionar'] ?? null;
+
+if (verificarBoton($btnSeleccionar)) {  
+    include_once('./tecnicoModule/controlListar.php');
+    $controlListar = new controlListar();
+    $controlListar->equipoSeleccionado($btnSeleccionar);
+} else {
+    include_once('../shared/windowMensajeSistema.php');
+    $mensajeSistema = new WindowMensajeSistema();
+    $mensajeSistema->mostrarMensaje("Error: Acceso no permitido");
 }
 ?>

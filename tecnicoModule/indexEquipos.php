@@ -1,14 +1,16 @@
 <?php
 include_once('../tecnicoModule/formEquipos.php');
 include_once('../model/modeloEquipo.php');
+include_once('../shared/WindowMensajeSistema.php');
+
 $objEquipo = new modeloEquipo();
 $datos = $objEquipo->listarEquipos();
-if(!empty($datos)){
+
+if (!empty($datos)) {
     $objFormEquipos = new formEquipos();
     $objFormEquipos->formEquiposShow($datos);
-}else{
-    include_once('../shared/windowMensajeSistema.php');
-        $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("No tiene ningun equipo en su inventario");
+} else {
+    $objMensaje = new WindowMensajeSistema();
+    $objMensaje->mostrarMensaje("No tiene ningún equipo en su inventario");
 }
 ?>
