@@ -23,7 +23,7 @@ class ControlAutenticarUsuario {
             $objWindowBienvenida->mostrarMensaje($listaPrivilegios);
         } else {
             $objMensaje = new WindowMensajeSistema();
-            $objMensaje->mostrarMensaje("El usuario no se ha encontrado, el password no coincide, o está deshabilitado", "<a href='../index.php'>Ir al inicio</a>");
+            $objMensaje->mostrarMensaje("El usuario no se ha encontrado, el password no coincide o esta deshabilitado", "<a href='../index.php'>Ir al inicio</a>");
         }
     }
 }
