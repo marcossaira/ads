@@ -12,7 +12,7 @@ class WindowBienvenidaSistema implements VentanaSistema {
         </head>
         <body>
             <div class="navbar">
-                <h1>BIENVENIDO: <?php echo $_SESSION['login']; ?></h1> 
+                <h1>BIENVENIDO: <?php echo strtoupper($_SESSION['login']); ?></h1> 
                 <a href="../index.php" class="logout-button">Logout</a>
             </div>
             <table border='0' align="center">

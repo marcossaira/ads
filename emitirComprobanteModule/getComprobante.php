@@ -38,7 +38,7 @@ if (isset($_POST['btnBoleta'])) {
     }else{
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje -> windowMensajeSistemaShow("Error: Digite correctamente la RUC","<a href='../index.php'>ir al inicio</a>");
+        $objMensaje -> mostrarMensaje("Error: Digite correctamente la RUC","<a href='../index.php'>ir al inicio</a>");
     }
 }
 ?>

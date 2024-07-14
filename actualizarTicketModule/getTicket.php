@@ -30,12 +30,12 @@ if (isset($_POST['btnBuscar'])) {
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->windowMensajeSistemaShow("Error: datos no válidos", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("Error: datos no válidos", "<a href='../index.php'>ir al inicio</a>");
         }
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("Error: Acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
+        $objMensaje->mostrarMensaje("Error: Acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
     }
 } elseif (isset($_POST['btnEntregar'])) {
     $txtCodigo = $_POST['btnEntregar'];

@@ -43,7 +43,7 @@ if (isset($_POST['btnSi'])) {
             <form name="formy" method="POST" action="">
             <?php include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje -> windowMensajeSistemaShow("Boleta anulada <br>","<a href='../index.php'>ir al inicio</a>");?>
+            $objMensaje -> mostrarMensaje("Boleta anulada <br>","<a href='../index.php'>ir al inicio</a>");?>
             <div align="center">
                 <input type="submit" value = "ok" name = "btnOk" formaction="../postVentaModule/indexAnularBoleta.php">
             </div>

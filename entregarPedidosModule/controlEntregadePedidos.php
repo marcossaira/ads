@@ -32,7 +32,7 @@ class controlEntregadePedidos
             {
                 include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje -> windowMensajeSistemaShow("La boleta no se ha encontrado, <br> o ya esta anulada","<a href='../index.php'>ir al inicio</a>");
+                $objMensaje -> mostrarMensaje("La boleta no se ha encontrado, <br> o ya esta anulada","<a href='../index.php'>ir al inicio</a>");
             }
         }
 
@@ -51,7 +51,7 @@ class controlEntregadePedidos
             {
                 include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje -> windowMensajeSistemaShow("La factura no se ha encontrado, <br> o ya esta anulada","<a href='../index.php'>ir al inicio</a>");
+                $objMensaje -> mostrarMensaje("La factura no se ha encontrado, <br> o ya esta anulada","<a href='../index.php'>ir al inicio</a>");
             }
         }
 

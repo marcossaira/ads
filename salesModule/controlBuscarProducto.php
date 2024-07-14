@@ -18,7 +18,7 @@ class controlBuscarProducto
        {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje -> windowMensajeSistemaShow("El no ha sido encontrado","<a href='../index.php'>ir al inicio</a>");
+        $objMensaje -> mostrarMensaje("El no ha sido encontrado","<a href='../index.php'>ir al inicio</a>");
 
        }
     }
