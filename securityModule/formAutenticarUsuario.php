@@ -3,11 +3,11 @@ class formAutenticarUsuario
 {
     public function formAutenticarUsuarioShow()
     {
-?>
+    ?>
  <html>
         <head>
             <title>Autenticacion de usuario</title>
-            <link rel='stylesheet' href='../styles/login.css' type='text/css'>
+            <link rel='stylesheet' href='./styles/login.css' type='text/css'>
         </head>
 
         <body>
@@ -17,7 +17,6 @@ class formAutenticarUsuario
                 <div>LABDENT<span>Lopez</span></div>
             </div>
             <div class="login">
-                <div class="login-triangle"></div>
                 <h2 class="login-header">INGRESE SU CUENTA</h2>
                 <form name="formAutenticarUsuario" method="POST" action="./securityModule/getUsuario.php">
                     <p><input type="text" name="txtLogin" placeholder="Usuario"></p>
@@ -31,5 +30,5 @@ class formAutenticarUsuario
     <?php
     }
 }
-
 ?>
+
