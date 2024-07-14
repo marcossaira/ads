@@ -3,15 +3,19 @@ class formAutenticarUsuario
 {
     public function formAutenticarUsuarioShow()
     {
-        ?>
-        <html>
-
+?>
+ <html>
         <head>
             <title>Autenticacion de usuario</title>
-            <link href="./styles/login.css" rel="stylesheet" type="text/css">
+            <link rel='stylesheet' href='../styles/login.css' type='text/css'>
         </head>
 
         <body>
+            <div class="body"></div>
+            <div class="grad"></div>
+            <div class="header">
+                <div>LABDENT<span>Lopez</span></div>
+            </div>
             <div class="login">
                 <div class="login-triangle"></div>
                 <h2 class="login-header">INGRESE SU CUENTA</h2>
@@ -20,11 +24,12 @@ class formAutenticarUsuario
                     <p><input type="password" name="txtPassword" placeholder="Password"></p>
                     <p><input name="btnLogin" type="submit" value="Ingresar" /></p>
                 </form>
-                <img class="logotipo"></img>
             </div>
         </body>
+    </html>
 
-        </html>
-        <?php
+    <?php
     }
 }
+
+?>

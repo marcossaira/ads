@@ -4,6 +4,7 @@ class WindowBienvenidaSistema implements VentanaSistema {
    public function mostrarMensaje($listaPrivilegios, $enlace=null)
     {
         ?>
+
         <html>
         <head>
             <title>Bienvenido: <?php echo strtoupper($_SESSION['login']); ?>
@@ -12,6 +13,7 @@ class WindowBienvenidaSistema implements VentanaSistema {
             
         </head>
         <body>
+
             <div class="navbar">
                 <h1>BIENVENIDO: <?php echo strtoupper($_SESSION['login']); ?></h1> 
                 <a href="../index.php" class="logout-button">Cerrar Sesion</a>
@@ -35,6 +37,9 @@ class WindowBienvenidaSistema implements VentanaSistema {
             </table>
         </body>
         </html>
+
+
+
         <?php
     }
 }
