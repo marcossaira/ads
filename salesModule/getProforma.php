@@ -1,27 +1,22 @@
 <?php
 
 session_start();
+
 function verificarBoton($btn)
 {
-    if (isset($btn))
-        return true;
-    else
-        return false;
+    return isset($btn);
 }
 
 function validarTexto($txtProducto)
 {
     $txtProducto = trim($txtProducto);
-    if (strlen($txtProducto) > 3)
-        return true;
-    else
-        return false;
+    return strlen($txtProducto) > 3;
 }
 
 $botonBuscar = $_POST['btnBuscar'] ?? null;
 $botonAgregar = $_POST['btnAgregar'] ?? null;
 $botonEmitirProforma = $_POST['btnEmitirProforma'] ?? null;
-//echo verificarbotonBuscar($botonBuscar);
+
 if (verificarBoton($botonBuscar)) {
     $txtProducto = $_POST['txtProducto'];
     if (validarTexto($txtProducto)) {
@@ -30,8 +25,8 @@ if (verificarBoton($botonBuscar)) {
         $objControl->validarProducto($txtProducto);
     } else {
         include_once('../shared/windowMensajeSistema.php');
-        $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("Error: los datos ingresados no son validos", "<a href='../index.php'>ir al inicio</a>");
+        $objMensaje = new WindowMensajeSistema();
+        $objMensaje->mostrarMensaje("Error: los datos ingresados no son válidos", "<a href='../index.php'>Ir al inicio</a>");
     }
 } elseif (verificarBoton($botonEmitirProforma)) {
     $totalProforma = $_POST['totalProforma'];
@@ -47,7 +42,6 @@ if (verificarBoton($botonBuscar)) {
     include_once("controlEmitirProforma.php");
     $objControl = new controlEmitirProforma();
     $objControl->insertarDatosProforma($totalProforma, $listaProductosProforma);
-
 } elseif (verificarBoton($botonAgregar)) {
     $idProducto = $_POST['idProducto'];
     $nombreProducto = $_POST['nombreProducto'];
@@ -56,9 +50,9 @@ if (verificarBoton($botonBuscar)) {
     include_once("controlBuscarProducto.php");
     $objControl = new controlBuscarProducto();
     $objControl->agregarProductoProforma($idProducto, $nombreProducto, $descripcionProducto, $precioProducto);
-
 } else {
     include_once('../shared/windowMensajeSistema.php');
-    $objMensaje = new windowMensajeSistema();
-    $objMensaje->windowMensajeSistemaShow("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
+    $objMensaje = new WindowMensajeSistema();
+    $objMensaje->mostrarMensaje("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>Ir al inicio</a>");
 }
+?>
