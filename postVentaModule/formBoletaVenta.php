@@ -46,6 +46,10 @@ class formBoletaVenta
                     }
                 ?>
                 </div>
+                <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
             </form>
 
         </body>

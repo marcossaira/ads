@@ -14,6 +14,10 @@ class formListar
 
 
         <body>
+        <div class="navbar">
+                    <h1>Detalle de Insumo</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+        </div>
 
         <div class="container">
     <div class="table-container">
@@ -49,8 +53,13 @@ class formListar
             }
             ?>
         </table>
+
     </div>
 </div>
+    <div class="button-container">
+        <button type="button" onclick="window.history.back();">Regresar</button>
+        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+    </div>
 
         </body>
 

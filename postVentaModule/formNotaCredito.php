@@ -44,6 +44,10 @@ class formNotaCredito
                 <input type='hidden' value='<?php echo $id?>' name='id'>
                 <input type="submit" value = "Emitir" name = "btnEmitir">
                 </div>
+                <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
                 </form>
                 
             </body>

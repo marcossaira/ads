@@ -11,6 +11,10 @@ class formEquipos
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Lista de Equipos de Laboratorio</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formEquipos" method="POST" action="getEquipos.php">
                 <table border="0" align="center">
 
@@ -48,6 +52,10 @@ class formEquipos
                     ?>
                     
                 </table>
+                <div class="button-container">
+                        <button type="button" onclick="window.history.back();">Regresar</button>
+                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                    </div>
             </form>
         </body>
 

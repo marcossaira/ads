@@ -12,6 +12,10 @@ class formBuscarTicketReembolso
         </head>
 
         <body>
+            <div class="navbar">
+                <h1>Buscar Ticket Reembolso</h1> 
+                <a href="../index.php" class="logout-button">Logout</a>
+            </div>
             <div class='cajabuscar'>
                 <form id='buscarform' name="formBuscarTicketReembolso" method="POST"
                     action="../actualizarTicketModule/getTicket.php">
@@ -30,6 +34,10 @@ class formBuscarTicketReembolso
                             </tr>
                         </table>
                     </fieldset>
+                    <div class="button-container">
+                        <button type="button" onclick="window.history.back();">Regresar</button>
+                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                    </div>
                 </form>
             </div>
         </body>

@@ -17,6 +17,10 @@ class formFaltantes
         </head>
 
         <body>
+        <div class="navbar">
+                    <h1>Insumos Faltantes</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+        </div>
 
     <div class="container">
         <div class="table-container">
@@ -46,6 +50,10 @@ class formFaltantes
 
             <a href="indexInsumos.php">Index</a>
         </div>
+    </div>
+    <div class="button-container">
+        <button type="button" onclick="window.history.back();">Regresar</button>
+        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
     </div>
 
 </body>

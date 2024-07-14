@@ -60,6 +60,10 @@ class formBuscarProducto
                         </tr>
                     </table>
                 <?php } ?>
+                <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
 
             </form>
             <?php
@@ -104,6 +108,7 @@ class formBuscarProducto
                 <?php
             }
                 ?>
+                
                 </form>
                 <script>
                     const cantidadProducto = Array.from(document.getElementsByClassName("cantidadProducto"));
@@ -123,6 +128,7 @@ class formBuscarProducto
                         });
                     });
                 </script>
+            
         </body>
 
         </html>

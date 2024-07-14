@@ -12,7 +12,10 @@ class formNuevo
             
     </head>
     <body>
-        
+                 <div class="navbar">
+                    <h1>Nuevo Insumo</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
         <div class="container">
         <div class="form-container">
         <h2>Ingresar nuevo insumo</h2>

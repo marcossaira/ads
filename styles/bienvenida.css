@@ -1,0 +1,84 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/* Usar la misma fuente que en tu login */
+body {
+  background: #f4f4f4; /* Color de fondo más claro para la página de bienvenida */
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+  background-color: #28d; /* Mismo color que en el login */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Estilo de la sección de usuario y botón de logout */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 15px;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  border-radius: 4px; /* Bordes redondeados para el botón */
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+/* Estilo de la tabla */
+table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: fit-content;
+}
+
+td {
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Estilo del formulario */
+form input[type="submit"] {
+  background: #28d; /* Mismo color que en el login */
+  border-color: transparent;
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 4px; /* Bordes redondeados para el botón */
+  font-size: 14px;
+}
+
+form input[type="submit"]:hover {
+  background: #17c; /* Color de hover del botón */
+}
+
+form input[type="submit"]:focus {
+  outline: none; /* Quitar el borde de enfoque del botón */
+}

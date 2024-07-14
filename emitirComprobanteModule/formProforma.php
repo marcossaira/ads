@@ -11,6 +11,10 @@ class formProforma
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Datos de la Proforma</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formProforma" method="POST" action="../emitirComprobanteModule/getComprobante.php">
 
                 <table align="center">
@@ -74,6 +78,10 @@ class formProforma
 
 
                 </table>
+                <div class="button-container">
+                        <button type="button" onclick="window.history.back();">Regresar</button>
+                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
             </form>
 
         </body>
