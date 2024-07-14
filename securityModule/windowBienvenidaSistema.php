@@ -10,14 +10,15 @@ class WindowBienvenidaSistema implements VentanaSistema {
             <title>Bienvenido: <?php echo strtoupper($_SESSION['login']); ?>
             </title>
             <link href="../styles/bienvenida.css" rel="stylesheet" type="text/css">
+            
         </head>
         <body>
 
             <div class="navbar">
                 <h1>BIENVENIDO: <?php echo strtoupper($_SESSION['login']); ?></h1> 
-                <a href="../index.php" class="logout-button">Logout</a>
+                <a href="../index.php" class="logout-button">Cerrar Sesion</a>
             </div>
-            <table border='0' align="center">
+            <table border='0' align="center" style="width: 30%;">
                 <tr>
                     <?php
                     for($i = 0; $i < count($listaPrivilegios); $i++)

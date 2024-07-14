@@ -8,14 +8,15 @@ class formBuscarProforma
             <head>
                 <title>Buscar Boleta o Factura</title>
                 <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+                
             </head>
             <body>
                 <div class="navbar">
                     <h1>Emitir Comprobante</h1> 
-                    <a href="../index.php" class="logout-button">Logout</a>
+                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
                 </div>
                 <form name="formBuscarProforma" method="POST" action="../emitirComprobanteModule/getProforma.php">
-                    <table border="0" align="center">
+                    <table border="0" >
                         <tr>
                             <td colspan="2" align="center">BUSCAR PROFORMA</td>
                         </tr>

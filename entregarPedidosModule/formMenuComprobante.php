@@ -13,7 +13,7 @@ class formMenuComprobante
         <body>
                 <div class="navbar">
                     <h1>Datos del Comprobante</h1> 
-                    <a href="../index.php" class="logout-button">Logout</a>
+                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
                 </div>
             <form name="formMenuComprobante" method="POST" action="getBoletaFactura.php">
                 <table border="0" align="center">

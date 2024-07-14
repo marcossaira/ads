@@ -14,7 +14,7 @@ class formBuscarTicketReembolso
         <body>
             <div class="navbar">
                 <h1>Buscar Ticket Reembolso</h1> 
-                <a href="../index.php" class="logout-button">Logout</a>
+                <a href="../index.php" class="logout-button">Cerrar Sesion</a>
             </div>
             <div class='cajabuscar'>
                 <form id='buscarform' name="formBuscarTicketReembolso" method="POST"
