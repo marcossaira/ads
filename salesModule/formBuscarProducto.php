@@ -12,6 +12,10 @@ class formBuscarProducto
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Buscar Producto</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formBuscarProducto" method="POST" action="../salesModule/getProforma.php">
                 <table borde="0" align="center">
                     <tr>
@@ -60,6 +64,10 @@ class formBuscarProducto
                         </tr>
                     </table>
                 <?php } ?>
+                <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
 
             </form>
             <?php
@@ -104,6 +112,7 @@ class formBuscarProducto
                 <?php
             }
                 ?>
+                
                 </form>
                 <script>
                     const cantidadProducto = Array.from(document.getElementsByClassName("cantidadProducto"));
@@ -123,6 +132,7 @@ class formBuscarProducto
                         });
                     });
                 </script>
+            
         </body>
 
         </html>

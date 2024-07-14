@@ -10,6 +10,10 @@ class formNuevo
             <title>Nuevo</title>
     </head>
     <body>
+    <div class="navbar">
+                    <h1>Nuevo Insumo</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
         <h2>Ingresar nuevo insumo</h2>
 
         <form action="getInsumos.php" method="POST">

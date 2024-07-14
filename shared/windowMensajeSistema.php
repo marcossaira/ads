@@ -8,12 +8,26 @@ class WindowMensajeSistema implements VentanaSistema {
         <html>
         <head>
             <title>Mensaje del sistema</title>
+            <link href="../styles/forms.css" rel="stylesheet" type="text/css">
         </head>
         <body>
-            <p align="center"> <strong> <?php echo strtoupper($mensaje); ?></strong></p>
-            <?php if ($enlace) : ?>
-                <p align="center"> <?php echo $enlace; ?> </p>
-            <?php endif; ?>
+        <form name="formMensaje">
+            <table border='0' align="center">
+                <tr>
+                    <p align="center"> <strong> <?php echo strtoupper($mensaje); ?></strong></p>
+                </tr>
+                <tr>
+                    <?php if ($enlace) : ?>
+                        <p align="center"> <?php echo $enlace; ?> </p>
+                    <?php endif; ?>
+                </tr>
+            </table>
+            
+            <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../index.php';">Inicio</button>
+            </div>
+        </form>
         </body>
         </html>
         <?php

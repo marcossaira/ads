@@ -8,12 +8,16 @@ class formDatosTicket
 
         <head>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
-            <title>Bienvenido: <?php echo $_SESSION['login'] ?></title>
+            <title>Datos Ticket Reembolso<?php echo $_SESSION['login'] ?></title>
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Datos del Ticket de Reembolso</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formDatosTicket" method="POST" action="../actualizarTicketModule/getTicket.php">
-
+            
                 <table align="center">
                     <?php
                     for ($i = 0; $i < count($listaTicket); $i++) {
@@ -43,6 +47,10 @@ class formDatosTicket
                     }
                     ?>
                 </table>
+                <div class="button-container">
+                        <button type="button" onclick="window.history.back();">Regresar</button>
+                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
             </form>
 
         </body>

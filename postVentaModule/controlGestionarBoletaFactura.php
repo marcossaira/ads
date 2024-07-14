@@ -40,7 +40,7 @@ class controlGestionarBoletaFactura
                     <form name="formNC" method="POST" action="./controlGestionarBoletaFactura.php">
                         <?php include_once('../shared/windowMensajeSistema.php');
                         $objMensaje = new windowMensajeSistema();
-                        $objMensaje->windowMensajeSistemaShow("Es necesario emitir una<br> nota de credito ya que la <br> boleta fue emitida hace <br> 7 dias o más", "<a href='../index.php'>ir al inicio</a>");
+                        $objMensaje->mostrarMensaje("Es necesario emitir una<br> nota de credito ya que la <br> boleta fue emitida hace <br> 7 dias o más", "<a href='../index.php'>ir al inicio</a>");
                         ?>
                         <div align="center">
                             <input type="submit" value="Continuar" name="btnContinuar">
@@ -56,7 +56,7 @@ class controlGestionarBoletaFactura
                     } else {
                         include_once('../shared/windowMensajeSistema.php');
                         $objMensaje = new windowMensajeSistema();
-                        $objMensaje->windowMensajeSistemaShow("La boleta no se ha encontrado<br> el password no coincide, <br> o ya esta anulada", "<a href='../index.php'>ir al inicio</a>");
+                        $objMensaje->mostrarMensaje("La boleta no se ha encontrado<br> el password no coincide, <br> o ya esta anulada", "<a href='../index.php'>ir al inicio</a>");
                     }
                 } elseif ($this->verTipo($txtoNum) == "F") {
                     include_once('../model/modeloFactura.php');
@@ -76,7 +76,7 @@ class controlGestionarBoletaFactura
                     <form name="formNC" method="POST" action="./controlGestionarBoletaFactura.php">
                         <?php include_once('../shared/windowMensajeSistema.php');
                             $objMensaje = new windowMensajeSistema();
-                            $objMensaje->windowMensajeSistemaShow("Es necesario emitir una<br> nota de credito ya que la <br> factura fue emitida hace <br> 7 dias o más", "<a href='../index.php'>ir al inicio</a>");
+                            $objMensaje->mostrarMensaje("Es necesario emitir una<br> nota de credito ya que la <br> factura fue emitida hace <br> 7 dias o más", "<a href='../index.php'>ir al inicio</a>");
                         ?>
                         <div align="center">
                             <input type="submit" value="Continuar" name="btnContinuar">
@@ -92,12 +92,12 @@ class controlGestionarBoletaFactura
                     } else {
                         include_once('../shared/windowMensajeSistema.php');
                         $objMensaje = new windowMensajeSistema();
-                        $objMensaje->windowMensajeSistemaShow("La factura no se ha encontrado<br> el password no coincide, <br> o ya esta anulada", "<a href='../index.php'>ir al inicio</a>");
+                        $objMensaje->mostrarMensaje("La factura no se ha encontrado<br> el password no coincide, <br> o ya esta anulada", "<a href='../index.php'>ir al inicio</a>");
                     }
                 } else {
                     include_once('../shared/windowMensajeSistema.php');
                     $objMensaje = new windowMensajeSistema();
-                    $objMensaje->windowMensajeSistemaShow("La factura no se ha encontrado<br> el password no coincide, <br> o ya esta anulada", "<a href='../index.php'>ir al inicio</a>");
+                    $objMensaje->mostrarMensaje("La factura no se ha encontrado<br> el password no coincide, <br> o ya esta anulada", "<a href='../index.php'>ir al inicio</a>");
                 }
             }
         } ?>
@@ -108,7 +108,7 @@ class controlGestionarBoletaFactura
     <form name="formConfirmar" method="POST" action="./controlGestionarBoletaFactura.php">
         <?php include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("¿Seguro que desea anular<br> la boleta de venta? <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
+        $objMensaje->mostrarMensaje("¿Seguro que desea anular<br> la boleta de venta? <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
         <div align="center">
             <input type="submit" value="Si" name="btnSiB">
             <input type="submit" value="No" name="btnNo" formaction="indexAnularComprobante.php">
@@ -124,7 +124,7 @@ if (isset($_POST['btnAnularFactura'])) {
     <form name="formConfirmar" method="POST" action="./controlGestionarBoletaFactura.php">
         <?php include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("¿Seguro que desea anular<br> la Factura de venta? <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
+        $objMensaje->mostrarMensaje("¿Seguro que desea anular<br> la Factura de venta? <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
         <div align="center">
             <input type="submit" value="Si" name="btnSiF">
             <input type="submit" value="No" name="btnNo" formaction="indexAnularComprobante.php">
@@ -144,7 +144,7 @@ if (isset($_POST['btnSiB'])) {
         <form name="formy" method="POST" action="">
             <?php include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->windowMensajeSistemaShow("Boleta anulada <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
+            $objMensaje->mostrarMensaje("Boleta anulada <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
             <div align="center">
                 <input type="submit" value="ok" name="btnOk" formaction="../postVentaModule/indexAnularComprobante.php">
             </div>
@@ -161,7 +161,7 @@ if (isset($_POST['btnSiB'])) {
         <form name="formy" method="POST" action="">
             <?php include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje->windowMensajeSistemaShow("Factura anulada <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
+                $objMensaje->mostrarMensaje("Factura anulada <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
             <div align="center">
                 <input type="submit" value="ok" name="btnOk" formaction="../postVentaModule/indexAnularComprobante.php">
             </div>
@@ -185,7 +185,7 @@ if (isset($_POST['btnSiB'])) {
         <form name="formNota" method="POST" action="">
             <?php include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje->windowMensajeSistemaShow("Nota de credito emitida <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
+                $objMensaje->mostrarMensaje("Nota de credito emitida <br>", "<a href='../index.php'>ir al inicio</a>"); ?>
             <div align="center">
                 <input type="submit" value="ok" name="btnOk" formaction="../postVentaModule/indexAnularComprobante.php">
             </div>

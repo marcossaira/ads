@@ -12,7 +12,11 @@ class formAgregar
 </head>
 
 <body>
-    <div class="container">
+        <div class="navbar">
+                    <h1>Agregar Insumos</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+        </div>
+        <div class="container">
         <div class="form-container">
             <h2 class="form-title">Agregar Unidades</h2>
 
@@ -28,6 +32,10 @@ class formAgregar
                 <input class="form-submit" type="submit" name="btnAumento" value="Enviar">
             </form>
         </div>
+    </div>
+    <div class="button-container">
+        <button type="button" onclick="window.history.back();">Regresar</button>
+        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
     </div>
 
 </body>

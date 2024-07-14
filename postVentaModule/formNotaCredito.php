@@ -11,6 +11,10 @@ class formNotaCredito
                 <link href="../styles/forms.css" rel="stylesheet" type="text/css">
             </head>
             <body>
+                <div class="navbar">
+                    <h1>Nota de Credito</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
                 <form name ="formNotaCredito" method = "POST" action="controlGestionarBoletaFactura.php">
                 <table border = '0' align="center">
                 <tr>
@@ -43,6 +47,10 @@ class formNotaCredito
                 <?php echo $idTipo?>
                 <input type='hidden' value='<?php echo $id?>' name='id'>
                 <input type="submit" value = "Emitir" name = "btnEmitir">
+                </div>
+                <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
                 </div>
                 </form>
                 

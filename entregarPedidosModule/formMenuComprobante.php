@@ -11,6 +11,10 @@ class formMenuComprobante
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Datos del Comprobante</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formMenuComprobante" method="POST" action="getBoletaFactura.php">
                 <table border="0" align="center">
                     <tr>
@@ -46,6 +50,10 @@ class formMenuComprobante
                         <td><button name="btnTicket" type="submit" value="<?php echo $txtoNum ?>">TICKET DE REEMBOLSO</button></td>
                     </tr>
                 </table>
+                <div class="button-container">
+                        <button type="button" onclick="window.history.back();">Regresar</button>
+                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                </div>
             </form>
         </body>
 

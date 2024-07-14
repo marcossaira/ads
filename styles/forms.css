@@ -1,3 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/* Usar la misma fuente que en tu login */
+body {
+  background: #f4f4f4; /* Color de fondo más claro para la página de bienvenida */
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Estilo de la barra de navegación */
+.navbar {
+  background-color: #28d; /* Mismo color que en el login */
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Estilo de la sección de usuario y botón de logout */
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 15px;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none; /* Elimina el subrayado del enlace */
+  border-radius: 4px; /* Bordes redondeados para el botón */
+  font-size: 14px;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
 form {
     height: 100vh; 
     overflow: hidden;
@@ -32,11 +81,7 @@ form {
     font-family: "Arial", sans-serif;
     font-size: 16px;
   }
-  
-  div {
-    text-align: center;
-    margin-top: 20px;
-  }
+
   
   input[type="submit"] {
     padding: 10px 20px;
@@ -66,4 +111,24 @@ form {
     cursor: pointer;
     font-family: "Arial", sans-serif;
     font-size: 16px;
+  }
+
+  .button-container {
+    display: flex; /* Usar Flexbox para alinear los botones */
+    gap: 10px; /* Espacio entre los botones */
+    margin-top: 20px;
+  }
+  
+  .button-container button {
+    padding: 10px 20px; /* Añadir algo de espacio dentro de los botones */
+    border: none; /* Remover el borde por defecto */
+    background-color: #428bca; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Mostrar cursor de mano al pasar sobre el botón */
+    border-radius: 4px; /* Bordes redondeados */
+  }
+  
+  .button-container button:hover {
+    background-color: #3276b1; /* Cambiar el color de fondo al pasar el mouse */
   }

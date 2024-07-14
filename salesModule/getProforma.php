@@ -25,8 +25,8 @@ if (verificarBoton($botonBuscar)) {
         $objControl->validarProducto($txtProducto);
     } else {
         include_once('../shared/windowMensajeSistema.php');
-        $objMensaje = new WindowMensajeSistema();
-        $objMensaje->mostrarMensaje("Error: los datos ingresados no son válidos", "<a href='../index.php'>Ir al inicio</a>");
+        $objMensaje = new windowMensajeSistema();
+        $objMensaje->windowMensajeSistemaShow("Error: los datos ingresados no son validos", "<a href='../index.php'>ir al inicio</a>");
     }
 } elseif (verificarBoton($botonEmitirProforma)) {
     $totalProforma = $_POST['totalProforma'];
@@ -52,7 +52,7 @@ if (verificarBoton($botonBuscar)) {
     $objControl->agregarProductoProforma($idProducto, $nombreProducto, $descripcionProducto, $precioProducto);
 } else {
     include_once('../shared/windowMensajeSistema.php');
-    $objMensaje = new WindowMensajeSistema();
-    $objMensaje->mostrarMensaje("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>Ir al inicio</a>");
+    $objMensaje = new windowMensajeSistema();
+    $objMensaje->windowMensajeSistemaShow("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
 }
 ?>

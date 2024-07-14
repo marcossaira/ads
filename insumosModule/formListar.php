@@ -12,6 +12,10 @@ class formListar
 
 
         <body>
+        <div class="navbar">
+                    <h1>Detalle de Insumo</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+        </div>
 
             <form name="formInsumos" method="POST" action="getInsumos.php">
                   

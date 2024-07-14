@@ -7,11 +7,15 @@ class formFacturaVenta
         <html>
 
         <head>
-            <title>Detalle Boleta O Factura</title>
+            <title>Detalle Comprobante</title>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Detalle del Comprobante</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formFacturaVenta" method="POST" action="controlGestionarBoletaFactura.php">
                 <table border='0' align="center">
                     <tr>
@@ -45,6 +49,10 @@ class formFacturaVenta
 
                     }
                 ?>
+                </div>
+                <div class="button-container">
+                    <button type="button" onclick="window.history.back();">Regresar</button>
+                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
                 </div>
             </form>
 

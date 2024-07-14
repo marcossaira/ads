@@ -36,7 +36,7 @@ class controlGestorComprobante
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->windowMensajeSistemaShow("La proforma no se ha encontrado", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("La proforma no se ha encontrado", "<a href='../index.php'>ir al inicio</a>");
         }
     }
     public function emitirBoleta($cod, $nombreC)
