@@ -13,7 +13,7 @@ class formProforma
         <body>
                 <div class="navbar">
                     <h1>Datos de la Proforma</h1> 
-                    <a href="../index.php" class="logout-button">Logout</a>
+                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
                 </div>
             <form name="formProforma" method="POST" action="../emitirComprobanteModule/getComprobante.php">
 
@@ -41,7 +41,7 @@ class formProforma
                         <th>NOMBRE</th>
                         <th>CANTIDAD</th>
                         <th>P/U
-                        <th>
+                        
                         <th>SUBTOTAL</th>
                     </tr>
                     <tr>

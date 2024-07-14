@@ -12,7 +12,7 @@ body {
 .navbar {
   background-color: #28d; /* Mismo color que en el login */
   color: #fff;
-  padding: 10px 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +20,7 @@ body {
 
 .navbar h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: 24px;
 }
 
 /* Estilo de la sección de usuario y botón de logout */
@@ -37,11 +37,11 @@ body {
   background-color: #dc3545;
   color: #fff;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 20px;
   cursor: pointer;
   text-decoration: none; /* Elimina el subrayado del enlace */
   border-radius: 4px; /* Bordes redondeados para el botón */
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .logout-button:hover {
@@ -72,7 +72,7 @@ form input[type="submit"] {
   padding: 10px 15px;
   cursor: pointer;
   border-radius: 4px; /* Bordes redondeados para el botón */
-  font-size: 14px;
+  font-size: 18px;
 }
 
 form input[type="submit"]:hover {

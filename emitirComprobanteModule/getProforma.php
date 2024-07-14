@@ -1,4 +1,5 @@
 <?php
+
 function verificarBoton($btonBuscar)
 {
     if(isset($btonBuscar))

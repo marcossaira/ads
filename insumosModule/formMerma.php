@@ -13,7 +13,7 @@ class formMerma
         <body>
         <div class="navbar">
                     <h1>Realizar Merma</h1> 
-                    <a href="../index.php" class="logout-button">Logout</a>
+                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
         </div>
         <h2>Realizar Merma</h2>
 

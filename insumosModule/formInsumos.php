@@ -14,7 +14,7 @@ class formInsumos
         <body>
         <div class="navbar">
                     <h1>Lista de Insumos</h1> 
-                    <a href="../index.php" class="logout-button">Logout</a>
+                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
                 </div>
                 <div>
                     <a href="controlInsumos.php?btnNuevo=true">Nuevo</a>

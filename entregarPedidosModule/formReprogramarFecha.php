@@ -13,7 +13,7 @@ class formReprogramarFecha
         <body>
                 <div class="navbar">
                     <h1>Reprogramacion de Fecha</h1> 
-                    <a href="../index.php" class="logout-button">Logout</a>
+                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
                 </div>
             <form name="formReprogramarFecha" method="POST" action="getBoletaFactura.php">
                 <table border="0" align="center">

@@ -28,6 +28,7 @@ if(verificarBoton($boton))
         include_once('controlAutenticarUsuario.php');
         $obControl = new controlAutenticarUsuario();
         $obControl -> validarDatos($login,$password);
+        
     }    
     else
     {

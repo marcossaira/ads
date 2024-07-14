@@ -16,11 +16,6 @@ class WindowMensajeSistema implements VentanaSistema {
                 <tr>
                     <p align="center"> <strong> <?php echo strtoupper($mensaje); ?></strong></p>
                 </tr>
-                <tr>
-                    <?php if ($enlace) : ?>
-                        <p align="center"> <?php echo $enlace; ?> </p>
-                    <?php endif; ?>
-                </tr>
             </table>
             
             <div class="button-container">
