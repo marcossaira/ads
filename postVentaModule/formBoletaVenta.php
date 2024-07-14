@@ -7,11 +7,15 @@ class formBoletaVenta
         <html>
 
         <head>
-            <title>Detalle Boleta O Factura</title>
+            <title>Detalle Comprobante</title>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
         </head>
 
         <body>
+                <div class="navbar">
+                    <h1>Detalle de la Boleta</h1> 
+                    <a href="../index.php" class="logout-button">Logout</a>
+                </div>
             <form name="formBoletaFactura" method="POST" action="controlGestionarBoletaFactura.php">
                 <table border='0' align="center">
                     <tr>
