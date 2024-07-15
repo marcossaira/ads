@@ -93,7 +93,7 @@ class formImprimirProforma
                 </tbody>
                 </table>
                 <div class="button-container">
-                    <button type="button" onclick="window.history.back();">Regresar</button>
+                <button type="button" onclick="goBackSalesModule();">Regresar</button>
                     <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
                 </div>
 

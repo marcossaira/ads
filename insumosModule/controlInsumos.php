@@ -16,7 +16,8 @@ class controlInsumos {
         } else{
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje -> windowMensajeSistemaShow("El producto no ha sido encontrado6","<a href='../index.php'>ir al inicio</a>");
+            $objMensaje -> mostrarMensaje("El producto no ha sido encontrado6","<a href='../index.php'>ir al inicio</a>");
+    }
     }
 
     public function MermaInsumos($codigo, $cantidadInsumo) { 
@@ -33,7 +34,7 @@ class controlInsumos {
                 
                 include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje -> windowMensajeSistemaShow("El producto no ha sido encontrado6","<a href='../index.php'>ir al inicio</a>");
+                $objMensaje -> mostrarMensaje("El producto no ha sido encontrado6","<a href='../index.php'>ir al inicio</a>");
             }
     }
 
@@ -51,7 +52,7 @@ class controlInsumos {
             
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje -> windowMensajeSistemaShow("El producto no ha sido encontrado6","<a href='../index.php'>ir al inicio</a>");
+            $objMensaje -> mostrarMensaje("El producto no ha sido encontrado6","<a href='../index.php'>ir al inicio</a>");
         }
     }
 }

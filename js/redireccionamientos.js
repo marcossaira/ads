@@ -7,6 +7,10 @@ function goBackTecnicoModule() {
         window.location.href = '../tecnicoModule/indexEquipos.php';
     }
 
+function goBackSalesModule() {
+        window.location.href = '../salesModule/indexBuscarProducto.php';
+    }    
+
 function irAFormFichaTecnica(idEq) {
         // Redirige a la URL de getRedireccionarTecnico.php con el parámetro idEq
         if (idEq) {
