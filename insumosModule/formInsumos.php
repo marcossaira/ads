@@ -8,22 +8,19 @@ class formInsumos
 
         <head>
             <title>Lista de Insumos</title>
+            <link rel="stylesheet" type="text/css" href="style.css">
         </head>
 
 
+
         <body>
-        <div class="navbar">
-                    <h1>Lista de Insumos</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
-                </div>
-                <div>
-                    <a href="controlInsumos.php?btnNuevo=true">Nuevo</a>
-                    <a href="controlInsumos.php?btnAgregar=true">Agregar</a>
-                    <a href="controlInsumos.php?btnMerma=true">Merma</a>
-                    <a href="controlInsumos.php?btnListar=true">Listar</a>
-                    <a href="controlInsumos.php?btnFaltantes=true">Faltantes</a>
-                    
-                </div> 
+            <div class="container">
+                <a class="button" href="controlInsumos.php?btnNuevo=true">Nuevo</a>
+                <a class="button" href="controlInsumos.php?btnAgregar=true">Agregar</a>
+                <a class="button" href="controlInsumos.php?btnMerma=true">Merma</a>
+                <a class="button" href="controlInsumos.php?btnListar=true">Listar</a>
+                <a class="button" href="controlInsumos.php?btnFaltantes=true">Faltantes</a>
+            </div> 
 
         </body>
 

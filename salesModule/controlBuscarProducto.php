@@ -1,7 +1,6 @@
 <?php
 class controlBuscarProducto
 {
-
     public function validarProducto($txtProducto)
     {
         include_once('../model/modeloProducto.php');
@@ -14,23 +13,29 @@ class controlBuscarProducto
             $objFormBuscarProducto->formBuscarProductoShow($respuesta);
         } else {
             include_once('../shared/windowMensajeSistema.php');
-            $objMensaje = new WindowMensajeSistema();
-            $objMensaje->mostrarMensaje("El producto no ha sido encontrado", "<a href='../index.php'>Ir al inicio</a>");
+            $objMensaje = new windowMensajeSistema();
+            $objMensaje->mostrarMensaje("Error: No se encontró el producto", "<a href='../index.php'>ir al inicio</a>");
         }
     }
 
     public function agregarProductoProforma($idProducto, $nombreProducto, $descripcionProducto, $precioProducto)
     {
+        if (!isset($_SESSION["listaProductosProforma"])) {
+            $_SESSION["listaProductosProforma"] = array();
+        }
+
         $listaProductosProforma = $_SESSION["listaProductosProforma"];
         $producto = array(
             "idProducto" => $idProducto,
             "nombreProducto" => $nombreProducto,
             "descripcionProducto" => $descripcionProducto,
-            "precioProducto" => $precioProducto
+            "precioProducto" => $precioProducto,
+            "cantidadProducto" => 1, // cantidad por defecto
+            "subTotal" => $precioProducto // subtotal por defecto
         );
-        array_push($listaProductosProforma, $producto);
+        $listaProductosProforma[] = $producto;
         $_SESSION["listaProductosProforma"] = $listaProductosProforma;
-        
+
         include_once("formBuscarProducto.php");
         $objFormBuscarProducto = new formBuscarProducto();
         $objFormBuscarProducto->formBuscarProductoShow(null);

@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 function verificarBoton($btn)
@@ -26,7 +25,7 @@ if (verificarBoton($botonBuscar)) {
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->windowMensajeSistemaShow("Error: los datos ingresados no son validos", "<a href='../index.php'>ir al inicio</a>");
+        $objMensaje->mostrarMensaje("Error: los datos ingresados no son válidos", "<a href='../index.php'>ir al inicio</a>");
     }
 } elseif (verificarBoton($botonEmitirProforma)) {
     $totalProforma = $_POST['totalProforma'];
@@ -47,12 +46,22 @@ if (verificarBoton($botonBuscar)) {
     $nombreProducto = $_POST['nombreProducto'];
     $descripcionProducto = $_POST['descripcionProducto'];
     $precioProducto = $_POST['precioProducto'];
+    
+    $listaProductosProforma = $_SESSION["listaProductosProforma"];
+    $cantidadProductoActual = isset($_POST['cantidadProducto']) ? $_POST['cantidadProducto'] : array();
+    $subTotalActual = isset($_POST['subTotal']) ? $_POST['subTotal'] : array();
+
+    for ($i = 0; $i < count($listaProductosProforma); $i++) {
+        $listaProductosProforma[$i]['cantidadProducto'] = $cantidadProductoActual[$i];
+        $listaProductosProforma[$i]['subTotal'] = $subTotalActual[$i];
+    }
+
     include_once("controlBuscarProducto.php");
     $objControl = new controlBuscarProducto();
     $objControl->agregarProductoProforma($idProducto, $nombreProducto, $descripcionProducto, $precioProducto);
 } else {
     include_once('../shared/windowMensajeSistema.php');
     $objMensaje = new windowMensajeSistema();
-    $objMensaje->windowMensajeSistemaShow("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
+    $objMensaje->mostrarMensaje("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
 }
 ?>

@@ -8,13 +8,14 @@ class formImprimirProforma
 
         <head>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+            <script src="../js/redireccionamientos.js"></script>
         </head>
 
         <body>
-                <div class="navbar">
-                    <h1>Imprimir Proforma</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
-                </div>
+            <div class="navbar">
+                <h1>Imprimir Proforma</h1>
+                <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
+            </div>
             <form name="formImprimirBoleta" method="POST" action="../emitirComprobanteModule/getComprobante.php">
 
                 <table class="table">
@@ -83,7 +84,7 @@ class formImprimirProforma
                         <td colspan='4'></td>
                     </tr>
                     <tr>
-                        <td colspan='4'><input class='button' name="btnBuscar" type="submit" onclick="imprimir()"value="IMPRIMIR" /></td>
+                        <td colspan='4'><button type="button" class="button" onclick="imprimir()">Imprimir</button></td>
                     </tr>
 
                 <?php
@@ -93,11 +94,11 @@ class formImprimirProforma
                 </table>
                 <div class="button-container">
                     <button type="button" onclick="window.history.back();">Regresar</button>
-                    <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                    <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
                 </div>
 
             </form>
-            
+
 
         </body>
 

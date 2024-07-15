@@ -1,5 +1,5 @@
 <?php
-include_once('../insumosModule/formInsumos.php');
+include_once('../insumos/formInsumos.php');
 
 $objFormInsumos = new formInsumos();
 $objFormInsumos->formInsumosShow();

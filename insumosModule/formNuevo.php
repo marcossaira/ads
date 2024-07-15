@@ -7,54 +7,46 @@ class formNuevo
         <html>
 
         <head>
-            <title>Nuevo</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+            <title>Nuevo Insumo</title>
+            
     </head>
     <body>
-    <div class="navbar">
-                    <h1>Nuevo Insumo</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
-                </div>
+        
+        <div class="container">
+        <div class="form-container">
         <h2>Ingresar nuevo insumo</h2>
-
+        
         <form action="getInsumos.php" method="POST">
 
-        <label for="idInsumos">Código de producto:</label>
-        <input type="text" id="codigo" name="codigo" required>
+        <label class="form-label" for="idInsumos">Código de producto:</label>
+        <input class="form-input" type="text" id="codigo" name="codigo" required>
 
-        <br><br>
+        <label class="form-label" for="nombreInsumo">Nombre:</label>
+        <input class="form-input" type="text" id="nombre" name="nombre" required>
 
-        <label for="nombreInsumo">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        
-        <br><br>
+        <label class="form-label" for="descripcion">Descripción:</label>
+        <input class="form-input" type="text" id="descripción" name="descripción" required>
 
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripción" name="descripción" required>
-        
-        <br><br>
+        <label class="form-label" for="cantidadInsumo">Cantidad del Insumo:</label>
+        <input class="form-input" type="text" id="cantidadInsumo" name="cantidadInsumo" required>
 
-        <label for="cantidadInsumo">Cantidad del Insumo:</label>
-        <input type="text" id="cantidadInsumo" name="cantidadInsumo" required>
+        <label class="form-label" for="cantidadRecomendada">Cantidad recomendada del Insumo:</label>
+        <input class="form-input" type="text" id="cantidadRecomendada" name="cantidadRecomendada" required>
 
-        <br><br>
+        <label class="form-label" for="proveedor">Proveedor:</label>
+        <input class="form-input" type="text" id="proveedor" name="proveedor" required>
 
-        <label for="cantidadRecomendada">Cantidad recomendada del Insumo:</label>
-        <input type="text" id="cantidadRecomendada" name="cantidadRecomendada" required>
+        <label class="form-label" for="contacto">Contacto del proveedor:</label>
+        <input class="form-input" type="text" id="contacto" name="contacto" required>
 
-        <br><br>
-
-        <label for="proveedor">Proveedor:</label>
-        <input type="text" id="proveedor" name="proveedor" required>
-
-        <br><br>
-
-        <label for="contacto">Contacto del proveedor:</label>
-        <input type="text" id="contacto" name="contacto" required>
-
-        <br><br>
-
-        <input type="submit" name="btnEnviar" value="Enviar">
+        <input class="form-submit" type="submit" name="btnEnviar" value="Enviar">
         </form>
+    
+        </div>
+        </div>
+
+        
 
         </body>
 

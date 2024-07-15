@@ -7,28 +7,30 @@ class formMerma
         <html>
 
         <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
             <title>Merma</title>
+            
         </head>
 
         <body>
-        <div class="navbar">
-                    <h1>Realizar Merma</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
-        </div>
-        <h2>Realizar Merma</h2>
+        <div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Realizar Merma</h2>
 
         <form action="getInsumos.php" method="POST">
+            <label class="form-label" for="codigo">Código:</label>
+            <input class="form-input" type="text" id="codigo" name="codigo" required>
 
-        <label for="idInsumos">Código:</label>
-        <input type="text" id="codigo" name="codigo" required>
+            <br><br>
 
-        <br><br>
+            <label class="form-label" for="cantidadInsumo">Cantidad Mermada:</label>
+            <input class="form-input" type="text" id="cantidadInsumo" name="cantidadInsumo" required>
 
-        <label for="cantidadInsumo">Cantidad Mermada:</label>
-        <input type="text" id="cantidadInsumo" name="cantidadInsumo" required>
-
-        <input type="submit" name="btnEnviarMerma" value="Enviar">
+            <input class="form-submit" type="submit" name="btnEnviarMerma" value="Enviar">
         </form>
+    </div>
+</div>
+
         </body>
 
         </html>

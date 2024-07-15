@@ -4,34 +4,36 @@ class formAgregar
     public function formAgregarShow()
 {
         ?>
-        <html>
+<html>
 
-        <head>
-            <title>Agregar</title>
-        </head>
+<head>
+    <title>Agregar</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
 
-        <body>
-        <div class="navbar">
-                    <h1>Agregar Insumos</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title">Agregar Unidades</h2>
+
+            <form action="getInsumos.php" method="POST">
+                <label class="form-label" for="codigo">Código:</label>
+                <input class="form-input" type="text" id="codigo" name="codigo" required>
+
+                <br><br>
+
+                <label class="form-label" for="cantidadInsumo">Cantidad a agregar:</label>
+                <input class="form-input" type="text" id="cantidadInsumo" name="cantidadInsumo" required>
+
+                <input class="form-submit" type="submit" name="btnAumento" value="Enviar">
+            </form>
         </div>
-        <h2>Agregar Unidades</h2>
+    </div>
 
-        <form action="getInsumos.php" method="POST">
+</body>
 
-        <label for="idInsumos">Código:</label>
-        <input type="text" id="codigo" name="codigo" required>
+</html>
 
-        <br><br>
-
-        <label for="cantidadInsumo">Cantidad a agregar:</label>
-        <input type="text" id="cantidadInsumo" name="cantidadInsumo" required>
-
-        <input type="submit" name="btnAumento" value="Enviar">
-        </form>
-        </body>
-
-        </html>
         <?php
     }
 }

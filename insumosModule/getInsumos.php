@@ -1,5 +1,11 @@
 <?php
 
+include_once('validaciones.php');
+include_once('controlInsumos.php');
+require_once('commandNuevoInsumo.php');
+require_once('commandMerma.php');
+require_once('commandAgregarInsumo.php');
+
 function validarCamposVacios($codigo, $nombre, $descripción, $cantidadInsumo, $cantidadRecomendada, $proveedor, $contacto){
     $array = [];
     array_push($array, $codigo, $nombre, $descripción, $cantidadInsumo, $cantidadRecomendada, $proveedor, $contacto);
@@ -80,19 +86,19 @@ if(isset($_POST["btnEnviar"]) == true){
                 else{
                     include_once('../shared/windowMensajeSistema.php');
                     $objMensaje = new windowMensajeSistema();
-                $objMensaje -> mostrarMensaje("El producto no ha sido encontrado1","<a href='../index.php'>ir al inicio</a>"); 
+                $objMensaje -> windowMensajeSistemaShow("El producto no ha sido encontrado1","<a href='../index.php'>ir al inicio</a>"); 
                 }
             }
         else{
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje -> mostrarMensaje("El producto no ha sido encontrado2","<a href='../index.php'>ir al inicio</a>");
+            $objMensaje -> windowMensajeSistemaShow("El producto no ha sido encontrado2","<a href='../index.php'>ir al inicio</a>");
             }
         } else {
 
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje -> mostrarMensaje("El producto no ha sido encontrado3","<a href='../index.php'>ir al inicio</a>");
+        $objMensaje -> windowMensajeSistemaShow("El producto no ha sido encontrado3","<a href='../index.php'>ir al inicio</a>");
     }
 
 
@@ -112,17 +118,17 @@ if(isset($_POST["btnEnviar"]) == true){
             } else {
                 include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje->mostrarMensaje("El producto no ha sido encontrado1", "<a href='../index.php'>ir al inicio</a>");
+                $objMensaje->windowMensajeSistemaShow("El producto no ha sido encontrado1", "<a href='../index.php'>ir al inicio</a>");
             }
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("El producto no ha sido encontrado2", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->windowMensajeSistemaShow("El producto no ha sido encontrado2", "<a href='../index.php'>ir al inicio</a>");
         }
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->mostrarMensaje("El producto no ha sido encontrado3", "<a href='../index.php'>ir al inicio</a>");
+        $objMensaje->windowMensajeSistemaShow("El producto no ha sido encontrado3", "<a href='../index.php'>ir al inicio</a>");
     }
 
     if (isset($_POST["btnAumento"])) {
@@ -140,17 +146,17 @@ if(isset($_POST["btnEnviar"]) == true){
             } else {
                 include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje->mostrarMensaje("El producto no ha sido encontrado1", "<a href='../index.php'>ir al inicio</a>");
+                $objMensaje->windowMensajeSistemaShow("El producto no ha sido encontrado1", "<a href='../index.php'>ir al inicio</a>");
             }
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("El producto no ha sido encontrado2", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->windowMensajeSistemaShow("El producto no ha sido encontrado2", "<a href='../index.php'>ir al inicio</a>");
         }
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->mostrarMensaje("El producto no ha sido encontrado3", "<a href='../index.php'>ir al inicio</a>");
+        $objMensaje->windowMensajeSistemaShow("El producto no ha sido encontrado3", "<a href='../index.php'>ir al inicio</a>");
     }
     
 ?>
