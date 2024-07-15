@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
 interface TicketCommand
 {
     public function execute($txtCodigo);
@@ -18,7 +20,6 @@ class ValidarTicketCommand implements TicketCommand
                 $id = $r['idBF'];
                 $cod = $r['codTicket'];
             }
-
             if ($idTipo == '1') {
                 include_once('../actualizarTicketModule/formDatosTicket.php');
                 include_once('../model/modeloBoleta.php');
@@ -30,7 +31,7 @@ class ValidarTicketCommand implements TicketCommand
                 } else {
                     include_once('../shared/windowMensajeSistema.php');
                     $objMensaje = new windowMensajeSistema();
-                    $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
+                    $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "alerta");
                 }
             } elseif ($idTipo == '2') {
                 include_once('../actualizarTicketModule/formDatosTicket.php');
@@ -43,17 +44,17 @@ class ValidarTicketCommand implements TicketCommand
                 } else {
                     include_once('../shared/windowMensajeSistema.php');
                     $objMensaje = new windowMensajeSistema();
-                    $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
+                    $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "alerta");
                 }
             } else {
                 include_once('../shared/windowMensajeSistema.php');
                 $objMensaje = new windowMensajeSistema();
-                $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
+                $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "alerta");
             }
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("El ticket no ha sido encontrado", "alerta");
         }
     }
 }
@@ -69,11 +70,11 @@ class EntregarTicketCommand implements TicketCommand
         if ($entregado == 1) {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("El ticket ha sido entregado", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("El ticket ha sido entregado", "exito");
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("No se ejecutó el cambio", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("No se ejecutó el cambio", "alerta");
         }
     }
 }
@@ -89,11 +90,11 @@ class AnularTicketCommand implements TicketCommand
         if ($anulado == 1) {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("El ticket ha sido anulado", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("El ticket ha sido anulado", "exito");
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("No se ejecutó el cambio", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("No se ejecutó el cambio", "alerta");
         }
     }
 }

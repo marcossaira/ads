@@ -26,4 +26,9 @@ function cerrarSesionYRedirigir() {
         };
         xhr.send();
     }
+
+function goBackTicketModule() {
+        window.location.href = '../actualizarTicketModule/indexBuscarTicketReembolso.php';
+    }
+
   

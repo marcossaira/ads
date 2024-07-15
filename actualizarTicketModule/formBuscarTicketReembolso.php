@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 class formBuscarTicketReembolso
 {
     public function formBuscarTicketReembolsoShow()
@@ -9,12 +12,13 @@ class formBuscarTicketReembolso
         <head>
             <title>Buscar Ticket Reembolso</title>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+            <script src="../js/redireccionamientos.js"></script>
         </head>
 
         <body>
             <div class="navbar">
                 <h1>Buscar Ticket Reembolso</h1> 
-                <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
             </div>
             <div class='cajabuscar'>
                 <form id='buscarform' name="formBuscarTicketReembolso" method="POST"
@@ -35,8 +39,7 @@ class formBuscarTicketReembolso
                         </table>
                     </fieldset>
                     <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                        <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Regresar</button>
                     </div>
                 </form>
             </div>

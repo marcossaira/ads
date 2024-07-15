@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 class formDatosTicket
 {
     public function formDatosTicketShow($listaTicket,$cod)
@@ -9,12 +12,14 @@ class formDatosTicket
         <head>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
             <title>Datos Ticket Reembolso<?php echo $_SESSION['login'] ?></title>
+            <script src="../js/redireccionamientos.js"></script>
         </head>
 
         <body>
                 <div class="navbar">
                     <h1>Datos del Ticket de Reembolso</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                    <?php echo $_SESSION['txtCodigo'] ?>
+                    <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
                 </div>
             <form name="formDatosTicket" method="POST" action="../actualizarTicketModule/getTicket.php">
             
@@ -48,8 +53,8 @@ class formDatosTicket
                     ?>
                 </table>
                 <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                <button type="button" onclick="goBackTicketModule();">Regresar</button>
+                        <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
                 </div>
             </form>
 

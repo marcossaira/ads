@@ -1,4 +1,7 @@
 <?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
 function verificarBoton($btn)
 {
     if(isset($btn))
@@ -30,12 +33,12 @@ if (isset($_POST['btnBuscar'])) {
         } else {
             include_once('../shared/windowMensajeSistema.php');
             $objMensaje = new windowMensajeSistema();
-            $objMensaje->mostrarMensaje("Error: datos no válidos", "<a href='../index.php'>ir al inicio</a>");
+            $objMensaje->mostrarMensaje("Error: datos no válidos", "alerta");
         }
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $objMensaje = new windowMensajeSistema();
-        $objMensaje->mostrarMensaje("Error: Acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
+        $objMensaje->mostrarMensaje("Error: Acceso no permitido", "alerta");
     }
 } elseif (isset($_POST['btnEntregar'])) {
     $txtCodigo = $_POST['btnEntregar'];
