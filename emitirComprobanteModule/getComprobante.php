@@ -1,4 +1,8 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include_once('../emitirComprobanteModule/EstrategiasComprobante.php');
 function verificarBoton($btonBuscar)
 {
     if(isset($btonBuscar))
@@ -41,4 +45,19 @@ if (isset($_POST['btnBoleta'])) {
         $objMensaje -> mostrarMensaje("Error: Digite correctamente la RUC","<a href='../index.php'>ir al inicio</a>");
     }
 }
+
+
+if (isset($_POST['confirmarB'])) {
+    include_once('../emitirComprobanteModule/controlGestorComprobante.php');
+    $control = new controlGestorComprobante(new IncrementarCodigoProforma(), new FechaEntregaSemana());
+    $control->confirmarBoleta();
+
+} elseif (isset($_POST['confirmarF'])) {
+    include_once('controlGestorComprobante.php');
+    $control = new controlGestorComprobante(new IncrementarCodigoProforma(), new FechaEntregaSemana());
+    $control->confirmarFactura();
+}
+
+
+
 ?>

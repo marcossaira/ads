@@ -1,115 +1,80 @@
 <?php
 class formImprimirFactura
 {
-    public function formImprimirFacturaShow($datosFactura,$detalle)
+    public function formImprimirFacturaShow($datosFactura, $detalle)
     {
 ?>
         <html>
-
         <head>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+            <script src="../js/redireccionamientos.js"></script>
         </head>
-
         <body>
-                <div class="navbar">
-                    <h1>Imprimir Factura</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
-                </div>
-            <form name="formImprimirBoleta" method="POST" action="../emitirComprobanteModule/getComprobante.php">
-
+            <div class="navbar">
+                <h1>Imprimir Boleta</h1> 
+                <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
+            </div>
+            <?php foreach ($datosFactura as $factura) { ?>
+            <form name="formImprimirFactura" >
                 <table class="table">
                     <tr>
                         <td colspan='2'>FACTURA</td>
-                        <?php
-                        for ($i = 0; $i < count($datosFactura); $i++) {
-                        ?>
-                            <td colspan='2'><?php echo $datosFactura[$i]['codFactura'] ?></td>
+                        <td colspan='2'><?php echo $factura['codFactura'] ?></td>
                     </tr>
                     <tr>
-
-                    </tr>
-                    <tr>
-                        <td colspan='2'>Fecha Emision:</td>
-                        <td colspan='2'><?php echo $datosFactura[$i]['fecha'] ?></td>
+                        <td colspan='2'>Fecha Emisión:</td>
+                        <td colspan='2'><?php echo $factura['fecha'] ?></td>
                     </tr>
                     <tr>
                         <td colspan='2'>Fecha Entrega:</td>
-                        <td colspan='2'><?php echo $datosFactura[$i]['FechaEntrega'] ?></td>
+                        <td colspan='2'><?php echo $factura['FechaEntrega'] ?></td>
                     </tr>
                     <tr>
-                        <td colspan='4'></td>
-                    </tr>
-                <?php
-                        }
-                ?>
-                <tr>
-                    <th scope="col">PRODUCTO</th>
-                    <th scope="col">CANTIDAD</th>
-                    <th scope="col">P/U</th>
-                    <th scope="col">SUBTOTAL</th>
-                </tr>
-                <tbody>
-                    <tr>
-                        <?php
-                        for ($j = 0; $j < count($detalle); $j++) {
-                        ?>
-                            <td><?php echo $detalle[$j]['nombre'] ?></td>
-                            <td><?php echo $detalle[$j]['cantidad'] ?></td>
-                            <td><?php echo $detalle[$j]['precio'] ?></td>
-                            <td>S/.<?php echo $detalle[$j]['subtotal'] ?></td>
-                    </tr>
-                <?php
-                        }
-                ?>
-                <tr>
-                    <td colspan='4'></td>
-                </tr>
-                <?php
-                for ($i = 0; $i < count($datosFactura); $i++) {
-                ?>
-                    <tr>
-
-                        <td colspan='3'>Total:</td>
-
-                        <td colspan=''><?php echo $datosFactura[$i]['total'] ?></td>
-                    </tr>
-                    <tr>
-
-                        <td colspan='3'>IGV:</td>
-                        <td><?php echo $datosFactura[$i]['iva'] ?></td>
-                    </tr>
-                    <tr>
-
-                        <td colspan='3'>Total a Pagar:</td>
-                        <td><?php echo $datosFactura[$i]['totalPagar'] ?></td>
+                        <td colspan='2'>Cliente:</td>
+                        <td colspan='2'><?php echo $factura['rucCliente'] ?></td>
                     </tr>
                     <tr>
                         <td colspan='4'></td>
                     </tr>
                     <tr>
-                        <td colspan='4'><input class='button' name="btnBuscar" type="submit" onclick="imprimir()"value="IMPRIMIR" /></td>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">P/U</th>
+                        <th scope="col">Subtotal</th>
                     </tr>
-
-                <?php
-                }
-                ?>
-                </tbody>
+                    <tbody>
+                        <?php foreach ($detalle as $det) { ?>
+                        <tr>
+                            <td><?php echo $det['nombre'] ?></td>
+                            <td><?php echo $det['cantidad'] ?></td>
+                            <td><?php echo $det['precio'] ?></td>
+                            <td>S/.<?php echo $det['subtotal'] ?></td>
+                        </tr>
+                        <?php } ?>
+                        <tr>
+                                <td colspan='3'>Total:</td>
+                                <td><?php echo $factura['total'] ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan='3'>IGV:</td>
+                                <td><?php echo $factura['iva'] ?></td>
+                            </tr>
+                        <tr>
+                            <td colspan='3'>Total a Pagar:</td>
+                            <td>S/.<?php echo $factura['totalPagar'] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan='4'><button type="button" class="button" onclick="imprimir()">Imprimir</button></td>
+                        </tr>
+                    </tbody>
                 </table>
-                <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
-                </div>
-
             </form>
-
+            <?php } ?>
+            <div class="button-container">
+                <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
+            </div>
         </body>
-
         </html>
-        <script>
-            function imprimir() {
-                window.print();
-            }
-        </script>
 <?php
     }
 }

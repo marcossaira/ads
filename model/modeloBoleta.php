@@ -100,6 +100,22 @@ class modeloBoleta extends conectarBaseDatos
             return [];
         }
     }
+    public function consultarBoleta($idBoleta)
+    {
+       $query="SELECT * 
+               FROM boleta 
+               WHERE idBoleta='$idBoleta'";
+       $mysqli=$this->conecta();
+       $resultadoB = $mysqli->query($query);
+        $this->desconecta($mysqli);
+        if ($resultadoB->num_rows > 0) {
+            $datos = $resultadoB->fetch_all(MYSQLI_ASSOC);
+            return $datos;
+        } else {
+            return [];
+        }
+        
+    }
 
 }
 

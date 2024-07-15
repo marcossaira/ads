@@ -99,7 +99,22 @@ class modeloFactura extends conectarBaseDatos
             return [];
         }
     }
-
+    public function consultarFactura($idFactura)
+    {
+       $query="SELECT * 
+               FROM factura
+               WHERE idFactura='$idFactura'";
+       $mysqli=$this->conecta();
+       $resultadoF = $mysqli->query($query);
+        $this->desconecta($mysqli);
+        if ($resultadoF->num_rows > 0) {
+            $datos = $resultadoF->fetch_all(MYSQLI_ASSOC);
+            return $datos;
+        } else {
+            return [];
+        }
+        
+    }
 
 
 

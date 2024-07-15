@@ -38,6 +38,21 @@ class modeloDetalleBoleta extends conectarBaseDatos
         $this->desconecta($mysqli);
 
     }
+    public function imprimirBoleta($idBoleta){
+        $query2="SELECT P.nombre, DP.cantidad, P.precio, DP.subtotal, DP.idDetalleProforma
+                 FROM proforma PF, detalleproforma DP, producto P, boleta B, detalleboleta DB
+                 WHERE  B.idBoleta='$idBoleta' and B.idBoleta=DB.idBoleta and DB.idDetalleProforma=DP.idDetalleProforma and PF.idProforma=DP.idProforma and DP.idProducto=P.idProducto";
+        $mysqli = $this->conecta();
+        $resultadoB= $mysqli->query($query2);
+        $this->desconecta($mysqli);
+        if ($resultadoB->num_rows > 0) {
+            $detalle=$resultadoB->fetch_all(MYSQLI_ASSOC);
+        return $detalle;
+        } else {
+        return [];
+        }
+    }
+    
 
 
 

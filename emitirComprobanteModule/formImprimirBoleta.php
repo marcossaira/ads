@@ -8,108 +8,76 @@ class formImprimirBoleta
 
         <head>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+            <script src="../js/redireccionamientos.js"></script>
         </head>
 
         <body>
-                <div class="navbar">
-                    <h1>Imprimir Boleta</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
-                </div>
-            <form name="formImprimirBoleta" method="POST" action="../emitirComprobanteModule/getComprobante.php">
-
-                <table class="table">
-                    <tr>
-                        <td colspan='2'>BOLETA</td>
-                        <?php
-                        for ($i = 0; $i < count($datosBoleta); $i++) {
-                        ?>
-                            <td colspan='2'><?php echo $datosBoleta[$i]['codBoleta'] ?></td>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                    <tr>
-                        <td colspan='2'>Fecha Emision:</td>
-                        <td colspan='2'><?php echo $datosBoleta[$i]['fecha'] ?></td>
-                    </tr>
-                    <tr>
-                        <td colspan='2'>Fecha Entrega:</td>
-                        <td colspan='2'><?php echo $datosBoleta[$i]['FechaEntrega'] ?></td>
-                    </tr>
-                    <tr>
-                        <td colspan='4'></td>
-                    </tr>
-                <?php
-                        }
-                ?>
-                <tr>
-                    <th scope="col">PRODUCTO</th>
-                    <th scope="col">CANTIDAD</th>
-                    <th scope="col">P/U</th>
-                    <th scope="col">SUBTOTAL</th>
-                </tr>
-                <tbody>
-                    <tr>
-                        <?php
-                        for ($j = 0; $j < count($detalle); $j++) {
-                        ?>
-                            <td><?php echo $detalle[$j]['nombre'] ?></td>
-                            <td><?php echo $detalle[$j]['cantidad'] ?></td>
-                            <td><?php echo $detalle[$j]['precio'] ?></td>
-                            <td>S/.<?php echo $detalle[$j]['subtotal'] ?></td>
-                    </tr>
-                <?php
-                        }
-                ?>
-                <tr>
-                    <td colspan='4'></td>
-                </tr>
-                <?php
-                for ($i = 0; $i < count($datosBoleta); $i++) {
-                ?>
-                    <tr>
-
-                        <td colspan='3'>Total:</td>
-
-                        <td colspan=''><?php echo $datosBoleta[$i]['total'] ?></td>
-                    </tr>
-                    <tr>
-
-                        <td colspan='3'>IGV:</td>
-                        <td><?php echo $datosBoleta[$i]['iva'] ?></td>
-                    </tr>
-                    <tr>
-
-                        <td colspan='3'>Total a Pagar:</td>
-                        <td><?php echo $datosBoleta[$i]['totalPagar'] ?></td>
-                    </tr>
-                    <tr>
-                        <td colspan='4'></td>
-                    </tr>
-                    <tr>
-                        <td colspan='4'><input class='button' name="btnBuscar" type="submit" onclick="imprimir()"value="IMPRIMIR" /></td>
-                    </tr>
-
-                <?php
-                }
-                ?>
-                </tbody>
-                </table>
-                <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
-                </div>
-
-            </form>
-
+            <div class="navbar">
+                <h1>Imprimir Boleta</h1>
+                <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
+            </div>
+            <?php foreach ($datosBoleta as $boleta) { ?>
+                <form name="formImprimirBoleta">
+                    <table class="table">
+                        <tr>
+                            <td colspan='2'>BOLETA</td>
+                            <td colspan='2'><?php echo $boleta['codBoleta'] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2'>Fecha Emisión:</td>
+                            <td colspan='2'><?php echo $boleta['fecha'] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2'>Fecha Entrega:</td>
+                            <td colspan='2'><?php echo $boleta['FechaEntrega'] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan='2'>Cliente:</td>
+                            <td colspan='2'><?php echo $boleta['nombreCliente'] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan='4'></td>
+                        </tr>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">P/U</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                        <tbody>
+                            <?php foreach ($detalle as $det) { ?>
+                                <tr>
+                                    <td><?php echo $det['nombre'] ?></td>
+                                    <td><?php echo $det['cantidad'] ?></td>
+                                    <td><?php echo $det['precio'] ?></td>
+                                    <td>S/.<?php echo $det['subtotal'] ?></td>
+                                </tr>
+                            <?php } ?>
+                            <tr>
+                                <td colspan='3'>Total:</td>
+                                <td><?php echo $boleta['total'] ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan='3'>IGV:</td>
+                                <td><?php echo $boleta['iva'] ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan='3'>Total a Pagar:</td>
+                                <td>S/.<?php echo $boleta['totalPagar'] ?></td>
+                            </tr>
+                            <tr>
+                                <td colspan='4'><button type="button" class="button" onclick="imprimir()">Imprimir</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            <?php } ?>
+            <div class="button-container">
+                <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
+            </div>
         </body>
 
         </html>
-        <script>
-            function imprimir() {
-                window.print();
-            }
-        </script>
 <?php
     }
 }

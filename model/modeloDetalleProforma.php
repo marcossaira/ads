@@ -36,6 +36,5 @@ public function buscarProformaId($codProforma){
     return [];
     }
 }
-
 }
 ?>

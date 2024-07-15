@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 class formProforma
 {
     public function formProformaShow($datos, $detalle)
@@ -8,12 +11,13 @@ class formProforma
 
         <head>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+            <script src="../js/redireccionamientos.js"></script>
         </head>
 
         <body>
                 <div class="navbar">
                     <h1>Datos de la Proforma</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                    <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
                 </div>
             <form name="formProforma" method="POST" action="../emitirComprobanteModule/getComprobante.php">
 
@@ -75,12 +79,11 @@ class formProforma
                 <?php
                 }
                 ?>
-
-
                 </table>
                 <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                        <button type="button" onclick="goBackProformaModule();">Regresar</but>
+                        
+                        <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
                 </div>
             </form>
 

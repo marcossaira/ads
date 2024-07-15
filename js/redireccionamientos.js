@@ -30,5 +30,21 @@ function cerrarSesionYRedirigir() {
 function goBackTicketModule() {
         window.location.href = '../actualizarTicketModule/indexBuscarTicketReembolso.php';
     }
+function goBackProformaModule() {
+        window.location.href = '../emitirComprobanteModule/indexEmitirComprobante.php';
+    }
+function imprimir() {
+    window.print();
+    return false;
+        }
 
+function irAFormProforma(codProforma) {
+            // Redirige a la URL de getRedireccionarTecnico.php con el parámetro idEq
+            if (codProforma) {
+                window.location.href = `../emitirComprobanteModule/getRedireccionarEmitir.php?codProforma=${codProforma}`;
+            } else {
+                console.error('El id del Equipo no es valido');
+            }
+        }
+  
   

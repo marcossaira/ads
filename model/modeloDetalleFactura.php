@@ -39,7 +39,20 @@ class modeloDetalleFactura extends conectarBaseDatos
         $this->desconecta($mysqli);
 
     }
-
+    public function imprimirFactura($idFactura){
+        $query2="SELECT P.nombre, DP.cantidad, P.precio, DP.subtotal, DP.idDetalleProforma 
+                 FROM proforma PF, detalleproforma DP, producto P, factura F, detallefactura DF 
+                 WHERE F.idFactura='$idFactura' and F.idFactura=DF.idFactura and DF.idDetalleProforma=DP.idDetalleProforma and PF.idProforma=DP.idProforma and DP.idProducto=P.idProducto";
+        $mysqli = $this->conecta();
+        $resultadoF= $mysqli->query($query2);
+        $this->desconecta($mysqli);
+        if ($resultadoF->num_rows > 0) {
+            $detalle=$resultadoF->fetch_all(MYSQLI_ASSOC);
+        return $detalle;
+        } else {
+        return [];
+        }
+    }
 
 
 
