@@ -24,7 +24,7 @@ class formFichaTecnica
         <body>
             <div class="navbar">
                 <h1>Ficha Tecnica</h1> 
-                <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
             </div>
             <form name="formFichaTecnica" method="POST" action="getFicha.php">
 

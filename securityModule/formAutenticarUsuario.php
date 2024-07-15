@@ -24,6 +24,7 @@ class formAutenticarUsuario
                     <p><input name="btnLogin" type="submit" value="Ingresar" /></p>
                 </form>
             </div>
+           
         </body>
     </html>
 

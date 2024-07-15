@@ -15,7 +15,7 @@ class formReparacion
         <body>
                 <div class="navbar">
                     <h1>Reparacion del Equipo</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                    <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
                 </div>
             <form name="formReparacion" method="POST" action="getFicha.php">
                 <table border="0" align="center">

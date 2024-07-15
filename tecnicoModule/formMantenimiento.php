@@ -23,7 +23,7 @@ class formMantenimiento
         <body>
             <div class="navbar">
                 <h1>Mantenimiento del Equipo </h1>
-                <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
             </div>
             <form name="formMantenimiento" method="POST" action="getFicha.php">
                 <table border="0" align="center">

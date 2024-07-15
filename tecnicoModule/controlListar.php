@@ -65,7 +65,7 @@ class controlListar
         $objHistorial->insertarM($desc, $fecha, $idEq);
 
         $objMensaje = new WindowMensajeSistema();
-        $objMensaje->mostrarMensaje("El mantenimiento ha sido registrado");
+        $objMensaje->mostrarMensaje("El mantenimiento ha sido registrado",'exito');
     }
 
     public function insertarRepEquipo($desc, $fecha, $idEq)
@@ -74,7 +74,7 @@ class controlListar
         $objHistorial->insertarR($desc, $fecha, $idEq);
 
         $objMensaje = new WindowMensajeSistema();
-        $objMensaje->mostrarMensaje("La reparación ha sido registrada");
+        $objMensaje->mostrarMensaje("La reparación ha sido registrada",'exito');
     }
 }
 ?>

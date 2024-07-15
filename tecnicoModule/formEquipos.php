@@ -24,7 +24,7 @@ class formEquipos
         <body>
                 <div class="navbar">
                     <h1>Lista de Equipos de Laboratorio</h1> 
-                    <a href="../index.php" class="logout-button">Cerrar Sesion</a>
+                    <button type="button" onclick="cerrarSesionYRedirigir()" class="logout-button">Cerrar Sesión</button>
                 </div>
             <form name="formEquipos" method="POST" action="../tecnicoModule/getEquipos.php">
                 <table border="0" align="center">

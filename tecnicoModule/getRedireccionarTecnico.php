@@ -1,6 +1,7 @@
 <?php
-session_start(); // Asegúrate de iniciar la sesión si no lo has hecho aún
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_GET['idEq'])) {
     $idEq = $_GET['idEq'];
     

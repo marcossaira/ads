@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 function verificarBoton($btn)
 {
     return isset($btn);
@@ -34,7 +37,7 @@ if (verificarBoton($btnMantenimiento)) {
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $mensajeSistema = new WindowMensajeSistema();
-        $mensajeSistema->mostrarMensaje("Detalle correctamente el mantenimiento");
+        $mensajeSistema->mostrarMensaje("Detalle correctamente el mantenimiento","alerta");
     }
 } elseif (verificarBoton($btnRegistrarR)) {
     $idEquipo = $btnRegistrarR;
@@ -48,11 +51,11 @@ if (verificarBoton($btnMantenimiento)) {
     } else {
         include_once('../shared/windowMensajeSistema.php');
         $mensajeSistema = new WindowMensajeSistema();
-        $mensajeSistema->mostrarMensaje("Detalle correctamente la reparacion");
+        $mensajeSistema->mostrarMensaje("Detalle correctamente la reparacion","alerta");
     }
 } else {
     include_once('../shared/windowMensajeSistema.php');
     $mensajeSistema = new WindowMensajeSistema();
-    $mensajeSistema->mostrarMensaje("Error: Acceso no permitido");
+    $mensajeSistema->mostrarMensaje("Error: Acceso no permitido","alerta");
 }
 ?>

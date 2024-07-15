@@ -15,4 +15,15 @@ function irAFormFichaTecnica(idEq) {
             console.error('El id del Equipo no es valido');
         }
     }
-    
+
+function cerrarSesionYRedirigir() {
+        // Realiza una solicitud AJAX para cerrar la sesión
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', `../securityModule/logout.php`, true);
+        xhr.onload = function () {
+            // Después de cerrar sesión, redirige al usuario a la página de inicio
+            window.location.href = `../index.php`;
+        };
+        xhr.send();
+    }
+  

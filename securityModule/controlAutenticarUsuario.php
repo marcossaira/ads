@@ -19,30 +19,28 @@ class ControlAutenticarUsuario {
         if ($respuesta == 1) {
             $objPrivilegioUsuario = new ModeloUsuarioPrivilegio();
             $listaPrivilegios = $objPrivilegioUsuario->obtenerPrivilegios($login);
-            
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-            
+
             $_SESSION['login'] = $login;
-            
+
+            // Mostrar mensaje de bienvenida con los privilegios
             $objWindowBienvenida = new WindowBienvenidaSistema();
             $objWindowBienvenida->mostrarMensaje($listaPrivilegios);
         
         } else {
+            // Mostrar mensaje de error y proporcionar un enlace para regresar al inicio
             $objMensaje = new WindowMensajeSistema();
             $objMensaje->mostrarMensaje("El usuario no se ha encontrado, el password no coincide o está deshabilitado", "<a href='../index.php'>Ir al inicio</a>");
         }
     }
+
     public function mostrarBienvenidaConPrivilegios($login)
     {
         $objPrivilegioUsuario = new ModeloUsuarioPrivilegio();
         $listaPrivilegios = $objPrivilegioUsuario->obtenerPrivilegios($login);
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-     
+
         $_SESSION['login'] = $login;
+
+        // Mostrar mensaje de bienvenida con los privilegios
         $objWindowBienvenida = new WindowBienvenidaSistema();
         $objWindowBienvenida->mostrarMensaje($listaPrivilegios);
     }
