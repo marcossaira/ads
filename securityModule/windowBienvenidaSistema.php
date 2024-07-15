@@ -1,8 +1,21 @@
 <?php
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Verifica si el usuario está autenticado (opcional, dependiendo de tus necesidades de seguridad)
+if (!isset($_SESSION['login'])) {
+    header('Location: ../index.php'); // Redirige al usuario al inicio si no está autenticado
+    exit;
+}
+
+
+include_once('../shared/ventanaSistema.php');
 class WindowBienvenidaSistema implements VentanaSistema {
    public function mostrarMensaje($listaPrivilegios, $enlace=null)
     {
+
         ?>
 
         <html>
@@ -26,6 +39,7 @@ class WindowBienvenidaSistema implements VentanaSistema {
                         ?>
                         <td align='center'>
                             <form name="formx" method="POST" action="<?php echo $listaPrivilegios[$i]['pathPriv']; ?>">
+                                <input type="hidden" name="login" value="<?php echo $_SESSION['login']; ?>">
                                 <p><img src="../img/<?php echo $listaPrivilegios[$i]['iconPriv']; ?>" width="50" height="50" alt="<?php echo $listaPrivilegios[$i]['labelPriv']; ?>"></p>
                                 <input type="submit" value="<?php echo $listaPrivilegios[$i]['labelPriv']; ?>" name="<?php echo $listaPrivilegios[$i]['buttonPriv']; ?>" />
                             </form>

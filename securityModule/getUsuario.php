@@ -43,4 +43,6 @@ else
     $objMensaje = new WindowMensajeSistema();
     $objMensaje->mostrarMensaje("Error: se ha detectado un acceso no permitido", "<a href='../index.php'>ir al inicio</a>");
 }
+
 ?>
+

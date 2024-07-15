@@ -1,8 +1,20 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+ // Inicia la sesión si aún no está iniciada
+
+// Verifica si el usuario está autenticado (opcional, dependiendo de tus necesidades de seguridad)
+if (!isset($_SESSION['login'])) {
+    header('Location: ../index.php'); // Redirige al usuario al inicio si no está autenticado
+    exit;
+}
 class formEquipos
 {
     public function formEquiposShow($datos)
     {
+        
         ?>
         <html>
         <head>
@@ -11,11 +23,12 @@ class formEquipos
         </head>
 
         <body>
+        <h1>BIENVENIDO: ga<?php echo strtoupper($_SESSION['login']); ?></h1> 
                 <div class="navbar">
                     <h1>Lista de Equipos de Laboratorio</h1> 
                     <a href="../index.php" class="logout-button">Cerrar Sesion</a>
                 </div>
-            <form name="formEquipos" method="POST" action="getEquipos.php">
+            <form name="formEquipos" method="POST" action="./tecnicoModule/getEquipos.php">
                 <table border="0" align="center">
 
                     <tr>
@@ -53,8 +66,19 @@ class formEquipos
                     
                 </table>
                 <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+         
+
+                <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Regresar</button>
+
+<script>
+    function irAInicio(login) {
+        // Redirige a la URL de getUsuario.php con el parámetro login
+        window.location.href = `../securityModule/getRedireccionar.php?login=${login}`;
+    }
+</script>
+
+</script>
+
                     </div>
             </form>
         </body>
