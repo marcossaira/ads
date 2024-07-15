@@ -13,9 +13,16 @@ class controlListar
         $objEquipo = new modeloEquipo();
         $equipos = $objEquipo->seleccionEquipo($idEq);
 
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        $_SESSION['idEq'] = $idEq;
+
+
         if (!empty($equipos)) {
             $objHistorial = new modeloHistorial();
             $fhistoria = $objHistorial->historialEquipo($idEq);
+          
             $objFormFichaTecnica = new formFichaTecnica();
             $objFormFichaTecnica->formFichaTecnicaShow($equipos, $fhistoria);
         } else {

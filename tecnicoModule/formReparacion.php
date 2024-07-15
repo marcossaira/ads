@@ -9,6 +9,7 @@ class formReparacion
         <head>
             <title>Reparacion del Equipo</title>
             <link href="../styles/forms.css" rel="stylesheet" type="text/css">
+            <script src="../js/redireccionamientos.js"></script>
         </head>
 
         <body>
@@ -50,8 +51,8 @@ class formReparacion
                     ?>
                 </table>
                 <div class="button-container">
-                        <button type="button" onclick="window.history.back();">Regresar</button>
-                        <button type="button" onclick="window.location.href='../securityModule/getUsuario.php';">Inicio</button>
+                <button type="button" onclick="irAFormFichaTecnica('<?php echo isset($_SESSION['idEq']) ? urlencode($_SESSION['idEq']) : ''; ?>')">Regresar</button>
+                <button type="button" onclick="irAInicio('<?php echo urlencode($_SESSION['login']); ?>')">Inicio</button>
                     </div>
             </form>
         </body>

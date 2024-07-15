@@ -7,7 +7,7 @@ function verificarBoton($btn)
 $btnSeleccionar = $_POST['btnSeleccionar'] ?? null;
 
 if (verificarBoton($btnSeleccionar)) {  
-    include_once('./tecnicoModule/controlListar.php');
+    include_once('../tecnicoModule/controlListar.php');
     $controlListar = new controlListar();
     $controlListar->equipoSeleccionado($btnSeleccionar);
 } else {

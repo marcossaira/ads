@@ -15,11 +15,11 @@ $btnRegistrarM = $_POST['btnRegistrarM'] ?? null;
 $btnRegistrarR = $_POST['btnRegistrarR'] ?? null;
 
 if (verificarBoton($btnMantenimiento)) {
-    include_once('./tecnicoModule/controlListar.php');
+    include_once('../tecnicoModule/controlListar.php');
     $controlListar = new controlListar();
     $controlListar->equipoMant($btnMantenimiento);
 } elseif (verificarBoton($btnReparacion)) {
-    include_once('./tecnicoModule/controlListar.php');
+    include_once('../tecnicoModule/controlListar.php');
     $controlListar = new controlListar();
     $controlListar->equipoRep($btnReparacion);
 } elseif (verificarBoton($btnRegistrarM)) {
@@ -28,7 +28,7 @@ if (verificarBoton($btnMantenimiento)) {
     $fechaMantenimiento = $_POST['txtFecha'];
     
     if (validarTexto($descripcionMantenimiento)) {
-        include_once('./tecnicoModule/controlListar.php');
+        include_once('../tecnicoModule/controlListar.php');
         $controlListar = new controlListar();
         $controlListar->insertarMantenimientoEquipo($descripcionMantenimiento, $fechaMantenimiento, $idEquipo);
     } else {
@@ -42,7 +42,7 @@ if (verificarBoton($btnMantenimiento)) {
     $fechaReparacion = $_POST['txtFecha'];
 
     if (validarTexto($descripcionReparacion)) {
-        include_once('./tecnicoModule/controlListar.php');
+        include_once('../tecnicoModule/controlListar.php');
         $controlListar = new controlListar();
         $controlListar->insertarRepEquipo($descripcionReparacion, $fechaReparacion, $idEquipo);
     } else {
